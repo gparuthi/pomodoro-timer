@@ -65,6 +65,8 @@ class Timer {
     let interval;
 
     this.start_btn.addEventListener("click", () => {
+      enableNoSleep();
+
       // enables the start button and disables the stop button
       this.start_btn.disabled = true;
       this.stop_btn.disabled = false;
