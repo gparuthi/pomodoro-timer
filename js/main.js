@@ -50,7 +50,15 @@ function enableNoSleep() {
     noSleep.enable();
 
     document.getElementById("about-btn").innerHTML = "Yes";
+  } else {
+    document.getElementById("about-btn").innerHTML = "No-wake";
   }
 }
 // window.addEventListener("load", enableNoSleep, false);
-document.addEventListener("click", enableNoSleep, false);
+// document.addEventListener("click", enableNoSleep, false);
+
+function setWorkText() {
+  const params = new URLSearchParams(location.search);
+  document.getElementById("logo").innerHTML = params.get("w");
+}
+window.addEventListener("load", setWorkText, false);
