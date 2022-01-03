@@ -2,7 +2,6 @@
 let timerDisplay = document.querySelector("#display");
 let pomodoroTime, timeObj;
 let smallBreakTime, smallBreakObj;
-let longBreakTime, longBreakObj;
 
 if (window.localStorage && localStorage.plTime && localStorage.plItem) {
   pomodoroTime = localStorage.getItem("plTime");
@@ -19,15 +18,6 @@ if (window.localStorage && localStorage.sbTime && localStorage.sbItem) {
   localStorage.setItem("sbItem", "#sb-5");
 }
 
-if (window.localStorage && localStorage.lbTime && localStorage.lbItem) {
-  [longBreakTime, longBreakObj] = [
-    localStorage.getItem("lbTime"),
-    localStorage.getItem("lbItem"),
-  ];
-} else {
-  localStorage.setItem("lbTime", "15:00");
-  localStorage.setItem("lbItem", "#ll-15");
-}
 if (timerDisplay) {
   if (pomodoroTime) timerDisplay.innerHTML = pomodoroTime;
   else {
@@ -51,14 +41,5 @@ if (smallBreakObj) {
     const items = document.querySelectorAll(".active-sb");
     for (const e of items) e.classList.remove("active-sb");
     activeObj.classList.add("active-sb");
-  }
-}
-
-if (longBreakObj) {
-  const activeObj = document.querySelector(longBreakObj);
-  if (activeObj) {
-    const items = document.querySelectorAll(".active-lb");
-    for (const e of items) e.classList.remove("active-lb");
-    activeObj.classList.add("active-lb");
   }
 }
