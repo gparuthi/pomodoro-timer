@@ -43,3 +43,15 @@ if (smallBreakObj) {
     activeObj.classList.add("active-sb");
   }
 }
+
+window.addEventListener(
+  "load",
+  function enableNoSleep() {
+    if (NoSleep) {
+      var noSleep = new NoSleep();
+      window.removeEventListener("load", enableNoSleep, false);
+      noSleep.enable();
+    }
+  },
+  false
+);
