@@ -43,15 +43,14 @@ if (smallBreakObj) {
     activeObj.classList.add("active-sb");
   }
 }
+function enableNoSleep() {
+  if (NoSleep) {
+    var noSleep = new NoSleep();
+    window.removeEventListener("load", enableNoSleep, false);
+    noSleep.enable();
 
-window.addEventListener(
-  "load",
-  function enableNoSleep() {
-    if (NoSleep) {
-      var noSleep = new NoSleep();
-      window.removeEventListener("load", enableNoSleep, false);
-      noSleep.enable();
-    }
-  },
-  false
-);
+    document.getElementById("about-btn").innerHTML = "Yes";
+  }
+}
+// window.addEventListener("load", enableNoSleep, false);
+document.addEventListener("click", enableNoSleep, false);
